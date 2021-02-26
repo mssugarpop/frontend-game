@@ -8,7 +8,6 @@
 }
 
 body {
-    width: 900px;
     height: 1000px;
     padding: 60px;
     display: flex;
@@ -16,7 +15,7 @@ body {
     align-content: space-around;
 }
 
-.quiz {
+.quiz, .start, .final {
     padding: 25px;
     width: 700px;
     height: 1000px;
@@ -40,6 +39,12 @@ body {
     align-items: center;
 }
 
+#description, #description2 {
+    width: 650px;
+    height: 400px;
+    font-size: 35px;
+}
+
 p {
     margin: 20px;
     width: 300px;
@@ -55,6 +60,13 @@ h2, h3, span {
     margin: 5px;
     display: flex;
     flex-direction: column;
+}
+
+#start, #replay {
+    border-radius: 50px;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 25px;
 }
 
 h3 {
