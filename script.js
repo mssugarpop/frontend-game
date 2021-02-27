@@ -26,3 +26,18 @@ startButton.addEventListener('click', (e) => {
     startPage.style.display = "none";
     quiz.style.display = "block";
 });
+
+//click next button to go to next question
+//for now using it to test going to the final page
+nextButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    quiz.style.display = "none";
+    final.style.display = "block";
+})
+
+//click 'try again' to start the trivia over
+replayButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    final.style.display = "none";
+    startPage.style.display = "block";
+})
