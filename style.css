@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
 
 * {
-    border: 1px solid red !important;
-    margin: 0 auto;
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid red;
+}
+
+html {
+    border: none;
 }
 
 body {
@@ -13,6 +14,9 @@ body {
     display: flex;
     flex-direction: column;
     align-content: space-around;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .quiz, .start, .final {
@@ -81,6 +85,7 @@ h2, h3, span {
     width: 500px;
     margin: 0 auto;
     margin-top: 40px;
+    background: rgb(235, 212, 137);
 }
 
 #start {
@@ -99,4 +104,78 @@ span {
     font-size: 30px;
     padding: 5px;
     line-height: 20px;
+}
+
+
+
+
+
+@media screen and (max-device-width: 430px) {
+
+    body {
+        height: 180vh;
+        width: 173vw;
+    }
+
+    .start, .quiz, .final {
+        /* width: 160vw; */
+        height: 400vh;
+        max-height: 178vh;
+        padding: 5px;
+    }
+
+    #startTrivia {
+        /* align-items: center; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 20px;
+        height: 150vh;
+    }
+
+    #description, #description2 {
+        height: 120vh;
+        width: 150vw;
+        padding: 10px; 
+    }
+
+    #choices {
+        height: 105vh;
+    }
+
+    #a1, #a2, #a3, #a4 {
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    #start {
+        margin-top: 20px;
+    }
+
+    #replay {
+        margin-top: 30px;
+    }
+
+    #startButton, #nextButton, #replayButton {
+        margin: 10px;
+        height: 23vh;
+        justify-content: space-evenly;
+        padding: 3px;
+    }
+
+    #startButton {
+        height: 19vh;
+    }
+    
+    #replayButton {
+        height: 21vh;
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 780px) {
+
 }
