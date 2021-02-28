@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Pragati+Narrow&display=swap');
 
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 html {
     border: none;
 }
 
 body {
+    color: rgb(59, 58, 57);
     height: 850px;
     padding: 30px;
     display: flex;
@@ -17,6 +18,7 @@ body {
     margin: 0 auto;
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(59, 58, 57);
 }
 
 .quiz, .start, .final {
@@ -26,6 +28,9 @@ body {
     height: 850px;
     max-height: 1000px;
     position: relative;
+    background-color: rgb(255, 240, 198);
+    border: 8px solid rgb(221, 180, 90);
+    border-radius: 15px;
 }
 
 #startTrivia {
@@ -34,14 +39,29 @@ body {
 }
 
 #questions {
-    height: 240px;
-    justify-content: space-evenly;
+    height: 245px;
+    justify-content: center;
     align-items: center;
 }
 
-#score {
+#scores {
     padding: 5px;
     height: 70px;
+}
+
+#score, #question {
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    background-color: rgb(238, 213, 175);
+    border: 5px solid rgb(221, 180, 90);
+    border-radius: 10px;
+}
+
+#question {
+    height: 75px;
+    background-color: rgb(212, 186, 147);
+    border-color: rgb(168, 143, 95);
 }
 
 #choices {
@@ -50,7 +70,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
@@ -58,7 +78,14 @@ body {
     /* margin: 10px; */
     width: 580px;
     height: 500px;
-    font-size: 35px;
+    font-size: 45px;
+    font-family: 'Pragati Narrow', sans-serif;
+    background-color: rgb(212, 186, 147);
+    border: 5px solid rgb(221, 180, 90);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #description2 {
@@ -70,6 +97,17 @@ p {
     width: 250px;
     height: 150px;
     border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#a1, #a2, #a3, #a4 {
+    font-family: 'Pragati Narrow', sans-serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 206, 255);
 }
 
 #a1, #a3 {
@@ -112,6 +150,8 @@ h2, h3, span {
 
 h3 {
     font-size: 35px;
+    border-radius: 5px;
+    background-color: rgb(235, 212, 137);
 }
 
 span {
@@ -138,11 +178,18 @@ span {
         padding: 5px;
     }
 
+    .final {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     #startTrivia {
         /* align-items: center; */
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
+        align-items: center;
         padding: 20px;
         height: 150vh;
     }
@@ -152,11 +199,10 @@ span {
         width: 150vw;
         padding: 10px; 
     }
-    #description {
-        width: 140vw;
-    }
+
     #description2 {
         height: 122vh;
+        width: 148vw;
     }
 
     #choices {
