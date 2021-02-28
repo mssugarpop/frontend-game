@@ -15,6 +15,18 @@ let question = document.querySelector("#question");
 /***QUESTIONS***/
 //Making arrays so that way I can populate the spaces with the required questions and answers. 
 
+//SCORE
+let score = document.querySelector("#score");
+let currentScore = 0;
+
+//OPTIONS
+let option1 = document.querySelector("#a1");
+let option2 = document.querySelector("#a2");
+let option3 = document.querySelector("#a3");
+let option4 = document.querySelector("#a4");
+
+
+//ARRAYS WITH QUESTIONS, OPTIONS, AND ANSWERS
 let questions = [
     "What gaming platforms is FFXIV available on?", 
     "How many playable races are there?",
@@ -40,24 +52,7 @@ qEightOptions = ["Three", "One", "All of them!", "Five"];
 qNineOptions = ["Sylph & Nu Mou", "Bangaa & Aegyl", "Viera & Hrothgar", "Fal'Cie & l'Cie"];
 qTenOptions = ["Pohtahto", "Popoto", "Puputu", "Lalafell"];
 
-
-//SCORE
-let score = document.querySelector("#score");
-let currentScore = 0;
-
-//OPTIONS
-let option1 = document.querySelector("#a1");
-let option2 = document.querySelector("#a2");
-let option3 = document.querySelector("#a3");
-let option4 = document.querySelector("#a4");
-
-
-//default display upon load
-startPage.style.display = "visible";
-quiz.style.display = "none";
-final.style.display = "none";
-
-
+//MAKING CLASSES FOR EACH QUESTION
 class questionSet {
     constructor (question, a1, a2, a3, a4, answer) {
         this.question = question;
@@ -69,16 +64,28 @@ class questionSet {
     }
 }
 
-let question2 = new questionSet (questions[0], qTwoOptions[0], qTwoOptions[1], qTwoOptions[2], qTwoOptions[3], qTwoOptions[2])
-console.log(question2)
+let question1 = new questionSet (questions[0], qOneOptions[0], qOneOptions[1], qOneOptions[2], qOneOptions[3], qOneOptions[3]);
+let question2 = new questionSet (questions[1], qTwoOptions[0], qTwoOptions[1], qTwoOptions[2], qTwoOptions[3], qTwoOptions[2])
+let question3 = new questionSet (questions[2], qThreeOptions[0], qThreeOptions[1], qThreeOptions[2], qThreeOptions[3], qThreeOptions[1]);
+let question4 = new questionSet (questions[3], qFourOptions[0], qFourOptions[1], qFourOptions[2], qFourOptions[3], qFourOptions[2]);
+let question5 = new questionSet (questions[4], qFiveOptions[0], qFiveOptions[1], qFiveOptions[2], qFiveOptions[3], qFiveOptions[3]);
+let question6 = new questionSet (questions[5], qSixOptions[0], qSixOptions[1], qSixOptions[2], qSixOptions[3], qSixOptions[2]);
+let question7 = new questionSet (question[6], qSevenOptions[0], qSevenOptions[1], qSevenOptions[2], qSevenOptions[3], qSevenOptions[0]);
+let question8 = new questionSet (questions[7], qEightOptions[0], qEightOptions[1], qEightOptions[2], qEightOptions[3], qEightOptions[2]);
+let question9 = new questionSet (questions[8], qNineOptions[0], qNineOptions[1], qNineOptions[2], qNineOptions[3], qNineOptions[2]);
+let question10 = new questionSet (questions[9], qTenOptions[0], qTenOptions[1], qTenOptions[2], qTenOptions[3], qTenOptions[1]);
 
 
+//default display upon load
+startPage.style.display = "visible";
+quiz.style.display = "none";
+final.style.display = "none";
 
 
 
 /******PLAYING THE GAME******/
 
-/***BUTTONS***/
+/***BUTTON NAVIGATION***/
 //click button to start trivia
 startButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -87,11 +94,9 @@ startButton.addEventListener('click', (e) => {
 });
 
 //click next button to go to next question
-//for now using it to test going to the final page
 nextButton.addEventListener('click', (e) => {
     e.preventDefault();
     quiz.style.display = "none";
-    // question3.style.display = "block;"
     final.style.display = "block";
     return currentScore;
 });
@@ -119,13 +124,13 @@ replayButton.addEventListener('click', (e) => {
 //4. User can click try again to retake the quiz. 
 
 
-question.innerHTML = questions[0];
-option1.innerHTML = qOneOptions[0];
-option2.innerHTML = qOneOptions[1];
-option3.innerHTML = qOneOptions[2];
-option4.innerHTML = qOneOptions[3];
+question.innerHTML = question1.question;
+option1.innerHTML = question1.a1;
+option2.innerHTML = question1.a2;
+option3.innerHTML = question1.a3;
+option4.innerHTML = question1.a4;
 let playerChoice = "";
-let correctAnswer = qOneOptions[3];
+let correctAnswer = question1.answer;
 
 
 option1.addEventListener('click', (e) => {
@@ -137,6 +142,7 @@ option1.addEventListener('click', (e) => {
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
+        currentScore = 0;
     }
 })
 
@@ -149,6 +155,7 @@ option2.addEventListener('click', (e) => {
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
+        currentScore = 0;
     }
 })
 
@@ -161,11 +168,13 @@ option3.addEventListener('click', (e) => {
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
+        currentScore = 0;
     }
 })
 
 option4.addEventListener('click', (e) => {
     e.preventDefault();
+
     let playerChoice = qOneOptions[3];
     if (playerChoice === correctAnswer) {
         console.log("That is correct");
@@ -173,6 +182,7 @@ option4.addEventListener('click', (e) => {
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
+        currentScore = 0;
     }
 })
 

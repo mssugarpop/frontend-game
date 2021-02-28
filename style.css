@@ -38,7 +38,7 @@ body {
     justify-content: space-evenly;
 }
 
-#questions {
+#questionsHeader {
     height: 245px;
     justify-content: space-between;
     align-items: center;
@@ -108,6 +108,20 @@ p {
     justify-content: center;
     align-items: center;
     background-color: rgb(154, 206, 255);
+    cursor: pointer;
+}
+
+#a1:hover, #a2:hover, #a3:hover, #a4:hover {
+    background-color: rgb(197, 225, 252);
+}
+
+#a1:active, #a2:active, #a3:active, #a4:active {
+    background-color: rgb(128, 193, 253);
+}
+
+#a1:focus, #a2:focus, #a3:focus, #a4:focus-visible {
+    /* color: white; */
+    background-color: rgb(36, 149, 255);
 }
 
 #a1, #a3 {
@@ -134,6 +148,17 @@ h2, h3, span {
     margin: 0 auto;
     /* margin-top: 40px; */
     background: rgb(235, 212, 137);
+    box-shadow: 0 9px rgb(197, 167, 110);
+}
+
+#start:hover, #next:hover, #replay:hover {
+    background-color:rgb(226, 195, 133);
+}
+
+#start:active, #next:active, #replay:active {
+    background-color: rgb(202, 174, 122);
+    box-shadow: 0 5px rgb(197, 167, 110);
+    transform: translateY(4px);
 }
 
 #startButton {
