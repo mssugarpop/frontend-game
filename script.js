@@ -14,13 +14,16 @@ const submitButton = document.querySelector(".submitButton");
 const replayButton = document.querySelector(".replayButton");
 
 //QUESTION
-let question = document.querySelector(".question");
+let question = document.querySelectorAll(".question");
 /***QUESTIONS***/
 //Making arrays so that way I can populate the spaces with the required questions and answers. 
 
 //SCORE
 let score = document.querySelector(".score");
 let currentScore = 0;
+let previousQuestion = 0;
+let currentQuestion = 0;
+let answerSelected = false;
 
 //OPTIONS
 let option1 = document.querySelectorAll(".a1");
@@ -36,7 +39,7 @@ let questions = [
     "What's the acronym of the role 'DPS' stand for?",
     "What job does the class Lancer become at level 30?",
     "How many battle jobs are there? (as of Shadowbringers expansion)",
-    "What is species of your trusty steed and companion called?",
+    "What is the species of your trusty steed and companion called?",
     "What expansion is included in the free trial?",
     "How many jobs can you play on one character?",
     "What are the newest playable races that were added to the game?",
@@ -78,12 +81,24 @@ let question8 = new questionSet(questions[7], qEightOptions[0], qEightOptions[1]
 let question9 = new questionSet(questions[8], qNineOptions[0], qNineOptions[1], qNineOptions[2], qNineOptions[3], qNineOptions[2]);
 let question10 = new questionSet(questions[9], qTenOptions[0], qTenOptions[1], qTenOptions[2], qTenOptions[3], qTenOptions[1]);
 
+questionSets = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
+
+
+for (let i = 0; i < quiz.length; i++) {
+    question[i].innerHTML = questionSets[i].question;
+    option1[i].innerHTML = questionSets[i].a1;
+    option2[i].innerHTML = questionSets[i].a2;
+    option3[i].innerHTML = questionSets[i].a3;
+    option4[i].innerHTML = questionSets[i].a4;
+}
+
 
 
 //default display upon load
-startPage.style.display = "visible";
+startPage.style.display = "block";
 for (let i = 0; i < quiz.length; i++) {
     quiz[i].style.display = "none";
+    // quiz[i].style.display = "block;"
 }
 final.style.display = "none";
 
@@ -99,35 +114,22 @@ startButton.addEventListener('click', (e) => {
     startPage.style.display = "none";
 });
 
-//click next button to go to next question
 
+//next button
 for (let i = 0; i < nextButton.length; i++) {
     nextButton[i].addEventListener('click', (e) => {
         e.preventDefault();
-        previousQuestion = 0;
-        currentQuestion = 1;
         previousQuestion = currentQuestion;
         currentQuestion++
+        if (answerSelected === true) {
         quiz[previousQuestion].style.display = "none";
         quiz[currentQuestion].style.display = "block";
+        } 
     })
 }
-// for (let i = 0; i < nextButton.length; i++) {
-//     let previousQuestion = 0;
-//     let currentQuestion = 0;
-//     previousQuestion = currentQuestion;
-//     nextButton[i].addEventListener('click', (e) => {
-//         e.preventDefault();
-//         currentQuestion++;
-//         if (i <= 10) {
-//             quiz[previousQuestion].style.display = "none";
-//             quiz[currentQuestion].style.display = "block";
-//             console.log("Last question: " + previousQuestion)
-//             console.log("Current question: " + currentQuestion)
-//         }
-//     })
-// }
 
+
+//submit button
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     for (let i = 0; i < quiz.length; i++) {
@@ -138,13 +140,14 @@ submitButton.addEventListener('click', (e) => {
 })
 
 
-
 //click 'try again' to start the trivia over
 replayButton.addEventListener('click', (e) => {
     e.preventDefault();
     final.style.display = "none";
     startPage.style.display = "block";
     currentScore = 0;
+    previousQuestion = 0;
+    currentQuestion = 0;
     return currentScore;
 });
 
@@ -165,79 +168,5 @@ replayButton.addEventListener('click', (e) => {
 
 //This whole thing works for the first page, but I don't really wanna do all the lines of code 
 //for the next 9 questions either. It's too long.
-question.innerHTML = question1.question;
-option1.innerHTML = question1.a1;
-option2.innerHTML = question1.a2;
-option3.innerHTML = question1.a3;
-option4.innerHTML = question1.a4;
-let playerChoice = "";
-let correctAnswer = question1.answer;
 
-
-option1.addEventListener('click', (e) => {
-    e.preventDefault();
-    let playerChoice = qOneOptions[0];
-    if (playerChoice === correctAnswer) {
-        console.log("That is correct");
-        currentScore = 1;
-        console.log(currentScore);
-    } else {
-        console.log("Incorrect answer");
-        currentScore = 0;
-    }
-})
-
-option2.addEventListener('click', (e) => {
-    e.preventDefault();
-    let playerChoice = qOneOptions[1];
-    if (playerChoice === correctAnswer) {
-        console.log("That is correct");
-        currentScore = 1;
-        console.log(currentScore);
-    } else {
-        console.log("Incorrect answer");
-        currentScore = 0;
-    }
-})
-
-option3.addEventListener('click', (e) => {
-    e.preventDefault();
-    let playerChoice = qOneOptions[2];
-    if (playerChoice === correctAnswer) {
-        console.log("That is correct");
-        currentScore = 1;
-        console.log(currentScore);
-    } else {
-        console.log("Incorrect answer");
-        currentScore = 0;
-    }
-})
-
-option4.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    let playerChoice = qOneOptions[3];
-    if (playerChoice === correctAnswer) {
-        console.log("That is correct");
-        currentScore = 1;
-        console.log(currentScore);
-    } else {
-        console.log("Incorrect answer");
-        currentScore = 0;
-    }
-})
-
-
-//would like to make function that can be executed 
-
-// function makeChoice() {
-//     if (playerChoice === correctAnswer) {
-//         console.log("That is correct");
-//         currentScore = 1;
-//         console.log(currentScore);
-//     } else {
-//         console.log("Incorrect answer");
-//         currentScore = 0;
-//     }
-// }
 
