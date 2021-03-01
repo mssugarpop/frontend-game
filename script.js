@@ -2,12 +2,14 @@ console.log("Javascript loaded");
 
 //pages/divs
 const startPage = document.querySelector(".start");
-const quiz = document.querySelector(".quiz");
+const quiz = document.querySelectorAll(".quiz");
+console.log(quiz[0]);
 const final = document.querySelector(".final");
 
 //buttons
 const startButton = document.querySelector("#start");
-const nextButton = document.querySelector("#next");
+const nextButton = document.querySelectorAll("#next");
+const submitButton = document.querySelector("#submit");
 const replayButton = document.querySelector("#replay");
 
 //QUESTION
@@ -28,7 +30,7 @@ let option4 = document.querySelector("#a4");
 
 //ARRAYS WITH QUESTIONS, OPTIONS, AND ANSWERS
 let questions = [
-    "What gaming platforms is FFXIV available on?", 
+    "What gaming platforms is FFXIV available on?",
     "How many playable races are there?",
     "What's the acronym of the role 'DPS' stand for?",
     "What job does the class Lancer become at level 30?",
@@ -54,7 +56,7 @@ qTenOptions = ["Pohtahto", "Popoto", "Puputu", "Lalafell"];
 
 //MAKING CLASSES FOR EACH QUESTION
 class questionSet {
-    constructor (question, a1, a2, a3, a4, answer) {
+    constructor(question, a1, a2, a3, a4, answer) {
         this.question = question;
         this.a1 = a1;
         this.a2 = a2;
@@ -64,21 +66,26 @@ class questionSet {
     }
 }
 
-let question1 = new questionSet (questions[0], qOneOptions[0], qOneOptions[1], qOneOptions[2], qOneOptions[3], qOneOptions[3]);
-let question2 = new questionSet (questions[1], qTwoOptions[0], qTwoOptions[1], qTwoOptions[2], qTwoOptions[3], qTwoOptions[2])
-let question3 = new questionSet (questions[2], qThreeOptions[0], qThreeOptions[1], qThreeOptions[2], qThreeOptions[3], qThreeOptions[1]);
-let question4 = new questionSet (questions[3], qFourOptions[0], qFourOptions[1], qFourOptions[2], qFourOptions[3], qFourOptions[2]);
-let question5 = new questionSet (questions[4], qFiveOptions[0], qFiveOptions[1], qFiveOptions[2], qFiveOptions[3], qFiveOptions[3]);
-let question6 = new questionSet (questions[5], qSixOptions[0], qSixOptions[1], qSixOptions[2], qSixOptions[3], qSixOptions[2]);
-let question7 = new questionSet (question[6], qSevenOptions[0], qSevenOptions[1], qSevenOptions[2], qSevenOptions[3], qSevenOptions[0]);
-let question8 = new questionSet (questions[7], qEightOptions[0], qEightOptions[1], qEightOptions[2], qEightOptions[3], qEightOptions[2]);
-let question9 = new questionSet (questions[8], qNineOptions[0], qNineOptions[1], qNineOptions[2], qNineOptions[3], qNineOptions[2]);
-let question10 = new questionSet (questions[9], qTenOptions[0], qTenOptions[1], qTenOptions[2], qTenOptions[3], qTenOptions[1]);
+let question1 = new questionSet(questions[0], qOneOptions[0], qOneOptions[1], qOneOptions[2], qOneOptions[3], qOneOptions[3]);
+let question2 = new questionSet(questions[1], qTwoOptions[0], qTwoOptions[1], qTwoOptions[2], qTwoOptions[3], qTwoOptions[2])
+let question3 = new questionSet(questions[2], qThreeOptions[0], qThreeOptions[1], qThreeOptions[2], qThreeOptions[3], qThreeOptions[1]);
+let question4 = new questionSet(questions[3], qFourOptions[0], qFourOptions[1], qFourOptions[2], qFourOptions[3], qFourOptions[2]);
+let question5 = new questionSet(questions[4], qFiveOptions[0], qFiveOptions[1], qFiveOptions[2], qFiveOptions[3], qFiveOptions[3]);
+let question6 = new questionSet(questions[5], qSixOptions[0], qSixOptions[1], qSixOptions[2], qSixOptions[3], qSixOptions[2]);
+let question7 = new questionSet(questions[6], qSevenOptions[0], qSevenOptions[1], qSevenOptions[2], qSevenOptions[3], qSevenOptions[0]);
+let question8 = new questionSet(questions[7], qEightOptions[0], qEightOptions[1], qEightOptions[2], qEightOptions[3], qEightOptions[2]);
+let question9 = new questionSet(questions[8], qNineOptions[0], qNineOptions[1], qNineOptions[2], qNineOptions[3], qNineOptions[2]);
+let question10 = new questionSet(questions[9], qTenOptions[0], qTenOptions[1], qTenOptions[2], qTenOptions[3], qTenOptions[1]);
+
 
 
 //default display upon load
 startPage.style.display = "visible";
-quiz.style.display = "none";
+for (let i = 0; i < quiz.length; i++) {
+    // if (i != 0) {
+    quiz[i].style.display = "none";
+    // }
+}
 final.style.display = "none";
 
 
@@ -90,16 +97,35 @@ final.style.display = "none";
 startButton.addEventListener('click', (e) => {
     e.preventDefault();
     startPage.style.display = "none";
-    quiz.style.display = "block";
+    quiz[0].style.display = "block";
 });
 
 //click next button to go to next question
-nextButton.addEventListener('click', (e) => {
+
+nextButton.forEach(
+    nextQuestion = () => {
+        let currentQuestion = 0;
+        let previousQuestion = 0;
+        addEventListener('click', (e) => {
+            e.preventDefault();
+            previousQuestion = currentQuestion;
+            currentQuestion++;
+            quiz[previousQuestion].style.display = "none";
+            quiz[currentQuestion].style.display = "block";
+        })
+    }
+)
+
+submitButton.addEventListener('click', (e) => {
     e.preventDefault();
-    quiz.style.display = "none";
+    for (let i = 0; i < quiz.length; i++) {
+        quiz[i].style.display = "none";
+    }
     final.style.display = "block";
     return currentScore;
-});
+})
+
+
 
 //click 'try again' to start the trivia over
 replayButton.addEventListener('click', (e) => {
@@ -124,6 +150,9 @@ replayButton.addEventListener('click', (e) => {
 //4. User can click try again to retake the quiz. 
 
 
+
+//This whole thing works for the first page, but I don't really wanna do all the lines of code 
+//for the next 9 questions either. It's too long.
 question.innerHTML = question1.question;
 option1.innerHTML = question1.a1;
 option2.innerHTML = question1.a2;
@@ -138,7 +167,7 @@ option1.addEventListener('click', (e) => {
     let playerChoice = qOneOptions[0];
     if (playerChoice === correctAnswer) {
         console.log("That is correct");
-        currentScore++;
+        currentScore = 1;
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
@@ -151,7 +180,7 @@ option2.addEventListener('click', (e) => {
     let playerChoice = qOneOptions[1];
     if (playerChoice === correctAnswer) {
         console.log("That is correct");
-        currentScore++;
+        currentScore = 1;
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
@@ -164,7 +193,7 @@ option3.addEventListener('click', (e) => {
     let playerChoice = qOneOptions[2];
     if (playerChoice === correctAnswer) {
         console.log("That is correct");
-        currentScore++;
+        currentScore = 1;
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
@@ -178,7 +207,7 @@ option4.addEventListener('click', (e) => {
     let playerChoice = qOneOptions[3];
     if (playerChoice === correctAnswer) {
         console.log("That is correct");
-        currentScore++;
+        currentScore = 1;
         console.log(currentScore);
     } else {
         console.log("Incorrect answer");
@@ -187,5 +216,19 @@ option4.addEventListener('click', (e) => {
 })
 
 
+//would like to make function that can be executed 
 
+// function makeChoice() {
+//     if (playerChoice === correctAnswer) {
+//         console.log("That is correct");
+//         currentScore = 1;
+//         console.log(currentScore);
+//     } else {
+//         console.log("Incorrect answer");
+//         currentScore = 0;
+//     }
+// }
 
+// for (i = 0; i <= questions.length; i++) {
+
+// }

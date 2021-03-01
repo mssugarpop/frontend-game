@@ -26,11 +26,13 @@ body {
     padding: 25px;
     width: 600px;
     height: 850px;
-    max-height: 1000px;
+    max-height: 850px;
     position: relative;
     background-color: rgb(255, 240, 198);
     border: 8px solid rgb(221, 180, 90);
     border-radius: 15px;
+    justify-content: space-around;
+    
 }
 
 #startTrivia {
@@ -40,8 +42,6 @@ body {
 
 #questionsHeader {
     height: 245px;
-    justify-content: space-between;
-    align-items: center;
 }
 
 #scores {
@@ -65,7 +65,8 @@ body {
 }
 
 #choices {
-    height: 420px;
+    margin-top: 20px;
+    height: 400px;
     width: 600px;
     display: flex;
     flex-direction: row;
@@ -101,7 +102,7 @@ p {
     align-items: center;
 }
 
-#a1, #a2, #a3, #a4 {
+.abcd {
     font-family: 'Pragati Narrow', sans-serif;
     font-size: 25px;
     display: flex;
@@ -111,15 +112,15 @@ p {
     cursor: pointer;
 }
 
-#a1:hover, #a2:hover, #a3:hover, #a4:hover {
+.abcd:hover {
     background-color: rgb(197, 225, 252);
 }
 
-#a1:active, #a2:active, #a3:active, #a4:active {
+.abcd:active {
     background-color: rgb(128, 193, 253);
 }
 
-#a1:focus, #a2:focus, #a3:focus, #a4:focus-visible {
+.abcd:focus {
     /* color: white; */
     background-color: rgb(36, 149, 255);
 }
@@ -142,7 +143,11 @@ h2, h3, span {
     flex-direction: column;
 }
 
-#start, #next, #replay {
+#buttonSection {
+    padding: 40px;
+}
+
+#start, #next, #submit, #replay {
     border-radius: 50px;
     width: 500px;
     margin: 0 auto;
@@ -151,26 +156,14 @@ h2, h3, span {
     box-shadow: 0 9px rgb(197, 167, 110);
 }
 
-#start:hover, #next:hover, #replay:hover {
-    background-color:rgb(226, 195, 133);
+#start:hover, #next:hover, #submit:hover, #replay:hover {
+    background-color:rgb(255, 226, 167);
 }
 
-#start:active, #next:active, #replay:active {
+#start:active, #next:active, #submit:active, #replay:active {
     background-color: rgb(202, 174, 122);
     box-shadow: 0 5px rgb(197, 167, 110);
     transform: translateY(4px);
-}
-
-#startButton {
-    padding: 40px;
-}
-
-#nextButton {
-    padding: 40px;
-}
-
-#replayButton {
-    padding: 40px;
 }
 
 h3 {
@@ -226,13 +219,13 @@ span {
     }
 
     #description2 {
-        height: 122vh;
+        height: 121vh;
         width: 148vw;
     }
 
     #choices {
         margin: 10px auto;
-        height: 110vh;
+        height: 120vh;
         width: 158vw;
     }
 
