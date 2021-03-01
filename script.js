@@ -9,6 +9,7 @@ const final = document.querySelector(".final");
 //buttons
 const startButton = document.querySelector("#start");
 const nextButton = document.querySelectorAll("#next");
+console.log(nextButton);
 const submitButton = document.querySelector("#submit");
 const replayButton = document.querySelector("#replay");
 
@@ -96,25 +97,38 @@ final.style.display = "none";
 //click button to start trivia
 startButton.addEventListener('click', (e) => {
     e.preventDefault();
-    startPage.style.display = "none";
     quiz[0].style.display = "block";
+    startPage.style.display = "none";
 });
 
 //click next button to go to next question
 
-nextButton.forEach(
-    nextQuestion = () => {
-        let currentQuestion = 0;
-        let previousQuestion = 0;
-        addEventListener('click', (e) => {
-            e.preventDefault();
-            previousQuestion = currentQuestion;
-            currentQuestion++;
-            quiz[previousQuestion].style.display = "none";
-            quiz[currentQuestion].style.display = "block";
-        })
-    }
-)
+for (let i = 0; i < nextButton.length; i++) {
+    nextButton[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        previousQuestion = 0;
+        currentQuestion = 1;
+        previousQuestion = currentQuestion;
+        currentQuestion++
+        quiz[0].style.display = "none";
+        quiz[1].style.display = "block";
+    })
+}
+// for (let i = 0; i < nextButton.length; i++) {
+//     let previousQuestion = 0;
+//     let currentQuestion = 0;
+//     previousQuestion = currentQuestion;
+//     nextButton[i].addEventListener('click', (e) => {
+//         e.preventDefault();
+//         currentQuestion++;
+//         if (i <= 10) {
+//             quiz[previousQuestion].style.display = "none";
+//             quiz[currentQuestion].style.display = "block";
+//             console.log("Last question: " + previousQuestion)
+//             console.log("Current question: " + currentQuestion)
+//         }
+//     })
+// }
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -229,6 +243,3 @@ option4.addEventListener('click', (e) => {
 //     }
 // }
 
-// for (i = 0; i <= questions.length; i++) {
-
-// }
