@@ -35,21 +35,21 @@ body {
     
 }
 
-#startTrivia {
+.startTrivia {
     height: 670px;
     justify-content: space-evenly;
 }
 
-#questionsHeader {
+.questionsHeader {
     height: 245px;
 }
 
-#scores {
+.scores {
     padding: 5px;
     height: 70px;
 }
 
-#score, #question {
+.score, .question {
     justify-content: center;
     align-items: center;
     height: 30px;
@@ -58,13 +58,13 @@ body {
     border-radius: 10px;
 }
 
-#question {
+.question {
     height: 75px;
     background-color: rgb(212, 186, 147);
     border-color: rgb(168, 143, 95);
 }
 
-#choices {
+.choices {
     margin-top: 20px;
     height: 400px;
     width: 600px;
@@ -75,7 +75,7 @@ body {
     align-items: center;
 }
 
-#description, #description2 {
+.description, .description2 {
     /* margin: 10px; */
     width: 580px;
     height: 500px;
@@ -89,7 +89,7 @@ body {
     align-items: center;
 }
 
-#description2 {
+.description2 {
     height: 430px;
 }
 
@@ -102,7 +102,7 @@ p {
     align-items: center;
 }
 
-.abcd {
+.a1, .a2, .a3, .a4{
     font-family: 'Pragati Narrow', sans-serif;
     font-size: 25px;
     display: flex;
@@ -112,24 +112,24 @@ p {
     cursor: pointer;
 }
 
-.abcd:hover {
+.a1:hover, .a2:hover, .a3:hover, .a4:hover {
     background-color: rgb(197, 225, 252);
 }
 
-.abcd:active {
+.a1:active, .a2:active, .a3:active, .a4:active {
     background-color: rgb(128, 193, 253);
 }
 
-.abcd:focus {
+.a1:focus, .a2:focus, .a3:focus, .a4:focus {
     /* color: white; */
     background-color: rgb(36, 149, 255);
 }
 
-#a1, #a3 {
+.a1, .a3 {
     margin-right: 10px;
 }
 
-#a2, #a4 {
+.a2, .a4 {
     margin-left: 10px;
 }
 
@@ -143,11 +143,11 @@ h2, h3, span {
     flex-direction: column;
 }
 
-#buttonSection {
+.buttonSection {
     padding: 40px;
 }
 
-#start, #next, #submit, #replay {
+.startButton, .nextButton, .submitButton, .replayButton {
     border-radius: 50px;
     width: 500px;
     margin: 0 auto;
@@ -156,11 +156,11 @@ h2, h3, span {
     box-shadow: 0 9px rgb(197, 167, 110);
 }
 
-#start:hover, #next:hover, #submit:hover, #replay:hover {
+.startButton:hover, .nextButton:hover, .submitButton:hover, .replayButton:hover {
     background-color:rgb(255, 226, 167);
 }
 
-#start:active, #next:active, #submit:active, #replay:active {
+.startButton:active, .nextButton:active, .submitButton:active, .replayButton:active {
     background-color: rgb(202, 174, 122);
     box-shadow: 0 5px rgb(197, 167, 110);
     transform: translateY(4px);
@@ -189,7 +189,7 @@ span {
         width: 173vw;
     }
 
-    .start, .quiz, .final {
+    .startButton, .quiz, .final {
         width: 160vw;
         height: 400vh;
         max-height: 178vh;
@@ -202,7 +202,7 @@ span {
         align-items: center;
     }
 
-    #startTrivia {
+    .startTrivia {
         /* align-items: center; */
         display: flex;
         flex-direction: column;
@@ -212,41 +212,41 @@ span {
         height: 150vh;
     }
 
-    #description, #description2 {
+    .description, .description2 {
         height: 120vh;
         width: 150vw;
         padding: 10px; 
     }
 
-    #description2 {
+    .description2 {
         height: 121vh;
         width: 148vw;
     }
 
-    #choices {
+    .choices {
         margin: 10px auto;
         height: 120vh;
         width: 158vw;
     }
 
-    #a1, #a2, #a3, #a4 {
+    .a1, .a2, .a3, .a4 {
         height: 300px;
         margin: 0 auto;
     }
 
-    #start {
+    .startButton {
         margin-top: 20px;
     }
 
-    #next {
+    .nextButton {
         margin-top: 20px;
     }
 
-    #replay {
+    .replayButton {
         margin-top: 20px;
     }
 
-    #startButton, #nextButton, #replayButton {
+    .startButton, .nextButton, .replayButton {
         margin: 10px;
         height: 19vh;
         justify-content: space-evenly;

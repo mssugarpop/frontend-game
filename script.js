@@ -7,26 +7,26 @@ console.log(quiz[0]);
 const final = document.querySelector(".final");
 
 //buttons
-const startButton = document.querySelector("#start");
-const nextButton = document.querySelectorAll("#next");
+const startButton = document.querySelector(".startButton");
+const nextButton = document.querySelectorAll(".nextButton");
 console.log(nextButton);
-const submitButton = document.querySelector("#submit");
-const replayButton = document.querySelector("#replay");
+const submitButton = document.querySelector(".submitButton");
+const replayButton = document.querySelector(".replayButton");
 
 //QUESTION
-let question = document.querySelector("#question");
+let question = document.querySelector(".question");
 /***QUESTIONS***/
 //Making arrays so that way I can populate the spaces with the required questions and answers. 
 
 //SCORE
-let score = document.querySelector("#score");
+let score = document.querySelector(".score");
 let currentScore = 0;
 
 //OPTIONS
-let option1 = document.querySelector("#a1");
-let option2 = document.querySelector("#a2");
-let option3 = document.querySelector("#a3");
-let option4 = document.querySelector("#a4");
+let option1 = document.querySelectorAll(".a1");
+let option2 = document.querySelectorAll(".a2");
+let option3 = document.querySelectorAll(".a3");
+let option4 = document.querySelectorAll(".a4");
 
 
 //ARRAYS WITH QUESTIONS, OPTIONS, AND ANSWERS
@@ -83,9 +83,7 @@ let question10 = new questionSet(questions[9], qTenOptions[0], qTenOptions[1], q
 //default display upon load
 startPage.style.display = "visible";
 for (let i = 0; i < quiz.length; i++) {
-    // if (i != 0) {
     quiz[i].style.display = "none";
-    // }
 }
 final.style.display = "none";
 
@@ -110,8 +108,8 @@ for (let i = 0; i < nextButton.length; i++) {
         currentQuestion = 1;
         previousQuestion = currentQuestion;
         currentQuestion++
-        quiz[0].style.display = "none";
-        quiz[1].style.display = "block";
+        quiz[previousQuestion].style.display = "none";
+        quiz[currentQuestion].style.display = "block";
     })
 }
 // for (let i = 0; i < nextButton.length; i++) {
