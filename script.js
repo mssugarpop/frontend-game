@@ -215,10 +215,8 @@ for (let i = 0; i < option1.length; i++) {
     })
 }
 
-//score page 
-console.log(score)
-console.log(currentScore)
 
+//score page 
 function logScore() {
     if (currentScore <= 3) {
         console.log(currentScore);
