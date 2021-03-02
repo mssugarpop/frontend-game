@@ -1,38 +1,35 @@
 console.log("Javascript loaded");
 
-//pages/divs
+//DEFINING DIV TYPES
 const startPage = document.querySelector(".start");
 const quiz = document.querySelectorAll(".quiz");
-console.log(quiz[0]);
 const final = document.querySelector(".final");
 
-//buttons
+//DEFINING BUTTONS
 const startButton = document.querySelector(".startButton");
 const nextButton = document.querySelectorAll(".nextButton");
-console.log(nextButton);
 const submitButton = document.querySelector(".submitButton");
 const replayButton = document.querySelector(".replayButton");
 
-//QUESTION
+//DEFINING QUESTION LIST
 let question = document.querySelectorAll(".question");
-/***QUESTIONS***/
-//Making arrays so that way I can populate the spaces with the required questions and answers. 
 
-//SCORE
+//SCORE & OTHER VALUES
+let finalDescription = document.querySelector(".description2");
 let score = document.querySelector(".score");
 let currentScore = 0;
 let previousQuestion = 0;
 let currentQuestion = 0;
 let answerSelected = false;
 
-//OPTIONS
+//DEFINING ANSWER OPTIONS
 let option1 = document.querySelectorAll(".a1");
 let option2 = document.querySelectorAll(".a2");
 let option3 = document.querySelectorAll(".a3");
 let option4 = document.querySelectorAll(".a4");
 
 
-//ARRAYS WITH QUESTIONS, OPTIONS, AND ANSWERS
+//QUESTIONS ARRAY
 let questions = [
     "What gaming platforms is FFXIV available on?",
     "How many playable races are there?",
@@ -83,7 +80,7 @@ let question10 = new questionSet(questions[9], qTenOptions[0], qTenOptions[1], q
 
 questionSets = [question1, question2, question3, question4, question5, question6, question7, question8, question9, question10];
 
-
+//Populating each question DIV with the questions and answer options
 for (let i = 0; i < quiz.length; i++) {
     question[i].innerHTML = questionSets[i].question;
     option1[i].innerHTML = questionSets[i].a1;
@@ -93,18 +90,13 @@ for (let i = 0; i < quiz.length; i++) {
 }
 
 
-
 //default display upon load
 startPage.style.display = "block";
 for (let i = 0; i < quiz.length; i++) {
     quiz[i].style.display = "none";
-    // quiz[i].style.display = "block;"
 }
 final.style.display = "none";
 
-
-
-/******PLAYING THE GAME******/
 
 /***BUTTON NAVIGATION***/
 //click button to start trivia
@@ -122,9 +114,11 @@ for (let i = 0; i < nextButton.length; i++) {
         previousQuestion = currentQuestion;
         currentQuestion++
         if (answerSelected === true) {
-        quiz[previousQuestion].style.display = "none";
-        quiz[currentQuestion].style.display = "block";
-        } 
+            quiz[previousQuestion].style.display = "none";
+            quiz[currentQuestion].style.display = "block";
+        } else {
+            answerSelected = false;
+        }
     })
 }
 
@@ -136,6 +130,7 @@ submitButton.addEventListener('click', (e) => {
         quiz[i].style.display = "none";
     }
     final.style.display = "block";
+    logScore();
     return currentScore;
 })
 
@@ -150,6 +145,95 @@ replayButton.addEventListener('click', (e) => {
     currentQuestion = 0;
     return currentScore;
 });
+
+/******PLAYING THE GAME******/
+//Adding functionality to answer option buttons to have user select their
+//answer. 
+/* REMEMBER TO UPDATE "answerSelected" to TRUE to enable user to click next.*/
+
+/*There should be a loop (if the answer buttons are in an array???) at some 
+point to check if the answer they selected was the right one, 
+adding points into the currentScore.*/
+
+//first, add event listeners? ... or maybe a function? 
+
+for (let i = 0; i < option1.length; i++) {
+    option1[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        answerSelected = true;
+        console.log("A was selected!");
+        if (option1[i].innerText === questionSets[i].answer) {
+            console.log("Correct!")
+            currentScore += 1;
+        } else {
+            console.log("Incorrect.")
+        }
+        console.log(currentScore);
+        return currentScore
+    })
+
+    option2[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        answerSelected = true;
+        console.log("B was selected!");
+        if (option2[i].innerText === questionSets[i].answer) {
+            console.log("Correct!")
+            currentScore += 1;
+        } else {
+            console.log("Incorrect.")
+        }
+        console.log(currentScore);
+        return currentScore
+    })
+
+    option3[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        answerSelected = true;
+        console.log("C was selected!");
+        if (option3[i].innerText === questionSets[i].answer) {
+            console.log("Correct!")
+            currentScore += 1;
+        } else {
+            console.log("Incorrect.")
+        }
+        console.log(currentScore);
+        return currentScore
+    })
+
+    option4[i].addEventListener('click', (e) => {
+        e.preventDefault();
+        answerSelected = true;
+        console.log("D was selected!");
+        if (option4[i].innerText === questionSets[i].answer) {
+            console.log("Correct!")
+            currentScore += 1;
+        } else {
+            console.log("Incorrect.")
+        }
+        console.log(currentScore);
+        return currentScore
+    })
+}
+
+//score page 
+console.log(score)
+console.log(currentScore)
+
+function logScore() {
+    if (currentScore <= 3) {
+        console.log(currentScore);
+        score.innerText = `Your Final Score: ${currentScore}/10`;
+        finalDescription.innerText = "Looks like you've got some brushing up to do!"
+    } else if (currentScore <= 7) {
+        console.log(currentScore)
+        score.innerText = `Your Final Score: ${currentScore}/10`;
+        finalDescription.innerText = "Almost there!"
+    } else if (currentScore === 10) {
+        console.log(currentScore)
+        score.innerText = `Your Final Score: ${currentScore}/10`;
+        finalDescription.innerText = "You know your stuff! Say, have you played this game before?"
+    }
+}
 
 
 

@@ -44,12 +44,7 @@ body {
     height: 245px;
 }
 
-.scores {
-    padding: 5px;
-    height: 70px;
-}
-
-.score, .question {
+.question {
     justify-content: center;
     align-items: center;
     height: 30px;
@@ -59,7 +54,8 @@ body {
 }
 
 .question {
-    height: 75px;
+    height: 90px;
+    line-height: 35px;
     background-color: rgb(212, 186, 147);
     border-color: rgb(168, 143, 95);
 }
@@ -90,7 +86,7 @@ body {
 }
 
 .description2 {
-    height: 430px;
+    height: 380px;
 }
 
 p {
@@ -189,7 +185,7 @@ span {
         width: 173vw;
     }
 
-    .startButton, .quiz, .final {
+    .start, .quiz, .final {
         width: 160vw;
         height: 400vh;
         max-height: 178vh;
@@ -209,29 +205,33 @@ span {
         justify-content: center;
         align-items: center;
         padding: 20px;
-        height: 150vh;
+        height: 140vh;
     }
 
     .description, .description2 {
-        height: 120vh;
+        height: 110vh;
         width: 150vw;
         padding: 10px; 
     }
 
     .description2 {
-        height: 121vh;
+        height: 110vh;
         width: 148vw;
     }
 
     .choices {
         margin: 10px auto;
-        height: 120vh;
+        height: 110vh;
         width: 158vw;
     }
 
     .a1, .a2, .a3, .a4 {
         height: 300px;
         margin: 0 auto;
+    }
+
+    .buttonSection {
+        padding: 0;
     }
 
     .startButton {
@@ -246,9 +246,10 @@ span {
         margin-top: 20px;
     }
 
-    .startButton, .nextButton, .replayButton {
-        margin: 10px;
+    .startButton, .nextButton, .submitButton, .replayButton {
+        /* margin: 10px; */
         height: 19vh;
+        border-radius: 100px;
         justify-content: space-evenly;
         padding: 3px;
     }
