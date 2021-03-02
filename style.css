@@ -99,8 +99,13 @@ p {
 }
 
 .a1, .a2, .a3, .a4{
+    color: rgb(59, 58, 57);
     font-family: 'Pragati Narrow', sans-serif;
     font-size: 25px;
+    width: 250px;
+    height: 150px;
+    border: none;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,7 +123,8 @@ p {
 
 .a1:focus, .a2:focus, .a3:focus, .a4:focus {
     /* color: white; */
-    background-color: rgb(36, 149, 255);
+    outline: none;
+    background-color: rgb(73, 167, 255);
 }
 
 .a1, .a3 {
@@ -144,7 +150,12 @@ h2, h3, span {
 }
 
 .startButton, .nextButton, .submitButton, .replayButton {
+    font-family: 'Cinzel', serif;
+    font-size: 55px;
+    color: rgb(59, 58, 57);
+    border: none;
     border-radius: 50px;
+    outline: none;
     width: 500px;
     margin: 0 auto;
     /* margin-top: 40px; */
@@ -215,13 +226,13 @@ span {
     }
 
     .description2 {
-        height: 110vh;
+        height: 105vh;
         width: 148vw;
     }
 
     .choices {
         margin: 10px auto;
-        height: 110vh;
+        height: 105vh;
         width: 158vw;
     }
 
@@ -252,6 +263,10 @@ span {
         border-radius: 100px;
         justify-content: space-evenly;
         padding: 3px;
+    }
+
+    .submitButton {
+        margin-top: 10px;
     }
 
 
